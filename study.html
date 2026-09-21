@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#22262B; --ink-soft:#5B6169; --line:#DDE1DC;
+    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D21; --ink-soft:#454B52; --line:#D3D8D2;
     --c-study:#1E7F6E; --c-study-bg:#E6F2EF;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
     font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-    background:var(--bg); color:var(--ink); line-height:1.75;
+    background:var(--bg); color:var(--ink); line-height:1.85;
     -webkit-font-smoothing:antialiased;
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
@@ -24,19 +24,45 @@
   .page{max-width:720px;margin:0 auto;padding:24px 16px 60px;}
   a{color:inherit;text-decoration:none;}
 
-  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 18px;}
-  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:13.5px;font-weight:700;color:var(--ink-soft);padding:6px 4px;}
+  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 20px;}
+  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:16px;font-weight:700;color:var(--c-study);padding:8px 4px;}
   .detail-head .titlewrap{flex:1;}
-  .detail-head .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--c-study);}
-  .detail-head h2{font-size:20px;font-weight:900;margin-top:2px;}
+  .detail-head .eyebrow{font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--c-study);}
+  .detail-head h2{font-size:24px;font-weight:900;margin-top:3px;}
 
-  .block{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px;margin-bottom:14px;}
-  .block h4{font-size:13.5px;font-weight:700;margin-bottom:10px;}
-  .block .row{display:flex;gap:10px;font-size:14px;padding:7px 0;border-top:1px dotted var(--line);}
+  .block{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px;margin-bottom:16px;}
+  .block h4{font-size:16px;font-weight:900;margin-bottom:14px;color:var(--ink);}
+
+  .block .row{display:flex;gap:12px;font-size:17px;padding:11px 0;border-top:1px solid var(--line);}
   .block .row:first-child{border-top:none;}
-  .block .row .k{flex:none;width:84px;color:var(--ink-soft);font-size:12.5px;padding-top:1px;}
+  .block .row .k{flex:none;width:112px;color:var(--ink-soft);font-size:14.5px;font-weight:700;padding-top:2px;}
   .block .row .v{flex:1;}
-  .block .row .v .sub{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .block .row .v .sub{display:block;font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.7;}
+
+  .gantt-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -4px;padding:0 4px;}
+  .gantt{border-collapse:collapse;min-width:100%;}
+  .gantt th, .gantt td{
+    padding:10px 8px;text-align:center;
+    border-bottom:1px solid var(--line);
+    white-space:nowrap;
+  }
+  .gantt th{
+    font-size:13px;font-weight:700;color:var(--ink-soft);
+  }
+  .gantt td.label{
+    text-align:left;font-size:15px;font-weight:700;color:var(--ink);
+    position:sticky;left:0;background:var(--panel);
+    padding-right:14px;
+  }
+  .gantt td.cell{width:46px;}
+  .gantt .bar{
+    display:block;height:22px;border-radius:6px;background:var(--c-study);
+    margin:0 auto;
+  }
+  .gantt .bar.wide{
+    background:var(--c-study-bg);border:2px solid var(--c-study);
+  }
+  .gantt-note{font-size:14px;color:var(--ink-soft);margin-top:12px;line-height:1.7;}
 </style>
 </head>
 <body>
@@ -58,6 +84,82 @@
     <div class="row"><span class="k">Dify</span><span class="v">2027年1月・分身AIの偵察</span></div>
     <div class="row"><span class="k">統計検定3級</span><span class="v">2027年2月・診断士の前段階</span></div>
     <div class="row"><span class="k">中小企業診断士</span><span class="v">2028年4月独立後を見据え本格化<span class="sub">1000〜1200h、月100h目安</span></span></div>
+  </div>
+
+  <div class="block">
+    <h4>学習スケジュール（月別）</h4>
+    <div class="gantt-wrap">
+      <table class="gantt">
+        <thead>
+          <tr>
+            <th style="text-align:left;">資格</th>
+            <th>10月</th>
+            <th>11月</th>
+            <th>12月</th>
+            <th>1月</th>
+            <th>2月</th>
+            <th>それ以降</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="label">生成AI Pass</td>
+            <td class="cell"><span class="bar"></span></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+          </tr>
+          <tr>
+            <td class="label">G検定</td>
+            <td class="cell"></td>
+            <td class="cell"><span class="bar"></span></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+          </tr>
+          <tr>
+            <td class="label">AWS CP</td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"><span class="bar"></span></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+          </tr>
+          <tr>
+            <td class="label">Dify</td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"><span class="bar"></span></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+          </tr>
+          <tr>
+            <td class="label">統計検定3級</td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"><span class="bar"></span></td>
+            <td class="cell"></td>
+          </tr>
+          <tr>
+            <td class="label">中小企業診断士</td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"></td>
+            <td class="cell"><span class="bar wide"></span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="gantt-note">中小企業診断士は2028年4月の独立を見据えて本格化する長期戦。着手の具体的な開始月はまだ未確定。</p>
   </div>
 
 </div>
