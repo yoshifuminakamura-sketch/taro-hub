@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#22262B; --ink-soft:#5B6169; --line:#DDE1DC;
+    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D21; --ink-soft:#454B52; --line:#D3D8D2;
     --c-home:#B23A63; --c-home-bg:#FAEBF0;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
     font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-    background:var(--bg); color:var(--ink); line-height:1.75;
+    background:var(--bg); color:var(--ink); line-height:1.85;
     -webkit-font-smoothing:antialiased;
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
@@ -24,22 +24,37 @@
   .page{max-width:720px;margin:0 auto;padding:24px 16px 60px;}
   a{color:inherit;text-decoration:none;}
 
-  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 18px;}
-  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:13.5px;font-weight:700;color:var(--ink-soft);padding:6px 4px;}
+  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 20px;}
+  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:16px;font-weight:700;color:var(--c-home);padding:8px 4px;}
   .detail-head .titlewrap{flex:1;}
-  .detail-head .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--c-home);}
-  .detail-head h2{font-size:20px;font-weight:900;margin-top:2px;}
+  .detail-head .eyebrow{font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--c-home);}
+  .detail-head h2{font-size:24px;font-weight:900;margin-top:3px;}
 
-  .block{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px;margin-bottom:14px;}
-  .block h4{font-size:13.5px;font-weight:700;margin-bottom:10px;}
-  .block .row{display:flex;gap:10px;font-size:14px;padding:7px 0;border-top:1px dotted var(--line);}
+  .block{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px;margin-bottom:16px;}
+  .block h4{font-size:16px;font-weight:900;margin-bottom:14px;color:var(--ink);}
+
+  .lead-block{
+    background:var(--c-home-bg);border:1px solid var(--c-home);
+    border-radius:14px;padding:18px 20px;margin-bottom:16px;
+  }
+  .lead-block p{font-size:17px;font-weight:700;color:var(--c-home);}
+  .lead-block p.sub{font-size:14.5px;font-weight:500;color:var(--ink-soft);margin-top:6px;}
+
+  .block .row{display:flex;gap:12px;font-size:17px;padding:11px 0;border-top:1px solid var(--line);}
   .block .row:first-child{border-top:none;}
-  .block .row .k{flex:none;width:84px;color:var(--ink-soft);font-size:12.5px;padding-top:1px;}
+  .block .row .k{flex:none;width:96px;color:var(--ink-soft);font-size:14.5px;font-weight:700;padding-top:2px;}
   .block .row .v{flex:1;}
-  .block .row .v .sub{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .block .row .v .sub{display:block;font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.7;}
+
   .block ul.plain{list-style:none;}
-  .block ul.plain li{font-size:14px;padding:7px 0;border-top:1px dotted var(--line);}
+  .block ul.plain li{font-size:17px;padding:11px 0;border-top:1px solid var(--line);}
   .block ul.plain li:first-child{border-top:none;}
+
+  /* サプリ用サブカード */
+  .supp{border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-bottom:10px;}
+  .supp:last-child{margin-bottom:0;}
+  .supp .name{font-size:16px;font-weight:700;margin-bottom:6px;}
+  .supp .detail{font-size:15px;color:var(--ink-soft);line-height:1.75;}
 </style>
 </head>
 <body>
@@ -53,21 +68,59 @@
     </span>
   </div>
 
-  <div class="block">
-    <h4>鬼怒川旅行（10/5-6）</h4>
-    <div class="row"><span class="k">状態</span><span class="v">しおり確定済み</span></div>
-    <div class="row"><span class="k">EV充電</span><span class="v">eMP利用、羽生PA（行き）・佐野SA（帰り）で急速充電</span></div>
-    <div class="row"><span class="k">同時実施</span><span class="v">父のスマホ移行もこの旅行中に</span></div>
+  <div class="lead-block">
+    <p>実家訪問は月1回ペース</p>
+    <p class="sub">毎月一度、実家に顔を出して話をしてくる運用で継続中</p>
   </div>
 
   <div class="block">
-    <h4>その他の実家関連</h4>
+    <h4>鬼怒川旅行（10/5-6）</h4>
+    <div class="row"><span class="k">しおり</span><span class="v">送付済み</span></div>
+    <div class="row"><span class="k">EV充電</span><span class="v">eMP利用、羽生PA（行き）・佐野SA（帰り）で急速充電</span></div>
+    <div class="row"><span class="k">東武W.S.</span><span class="v">チケットは前日に手配する予定</span></div>
+  </div>
+
+  <div class="block">
+    <h4>サプリ</h4>
+    <div class="supp">
+      <div class="name">ルテイン（目のサプリ）</div>
+      <div class="detail">母が花粉の時期（1〜4月）のみ服用。在庫1本あり、来シーズン中は持つ見込み</div>
+    </div>
+    <div class="supp">
+      <div class="name">マグネシウム</div>
+      <div class="detail">父母共用。1人1粒/日（2人で1日2粒）へ切替予定、3か月周期の配送に見直し</div>
+    </div>
+    <div class="supp">
+      <div class="name">セサミン</div>
+      <div class="detail">母が1日4粒服用。半分以上残っており1か月以上は持つ見込み。在庫がなくなったら一旦停止し、効果実感を確認する方針</div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h4>ふるさと納税</h4>
     <ul class="plain">
-      <li>サプリ　マグネシウムを1人1粒/日へ切替、3か月周期の配送に見直し</li>
-      <li>ふるさと納税　いつものフルーツに加え、帆立と餃子を検討中</li>
-      <li>両親の旅行構想　四国・宮島・彦根城・松島など、紅葉に合わせた旅館の仮押さえ（鬼怒川とは別件、まだ着手前）</li>
-      <li>資産整理　マネックス証券→ゆうちょ銀行へ、次回実家訪問時に</li>
+      <li>フルーツ定期便を毎年贈っている</li>
+      <li>ホタテ・餃子を追加で送った</li>
+      <li>自分用に買ったものを、おすそ分けで持っていくアイデアもあり</li>
     </ul>
+  </div>
+
+  <div class="block">
+    <h4>次回やること</h4>
+    <ul class="plain">
+      <li>マグネシウム持参</li>
+      <li>スマホ移行</li>
+      <li>マネックス対応</li>
+      <li>創くんとの話</li>
+      <li>フォトフレームアイデア</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h4>両親の旅行構想</h4>
+    <div class="row"><span class="k">行きたい所</span><span class="v">四国・宮島・彦根城・松島など</span></div>
+    <div class="row"><span class="k">条件</span><span class="v">新幹線移動はOK。紅葉シーズンに合わせるのが難しい</span></div>
+    <div class="row"><span class="k">アイデア</span><span class="v">紅葉に合わせて旅館を複数日程で仮押さえしておく<span class="sub">両親には難しいが太郎ならできる。鬼怒川とは別件、まだ着手前</span></span></div>
   </div>
 
 </div>
