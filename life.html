@@ -10,13 +10,13 @@
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#22262B; --ink-soft:#5B6169; --line:#DDE1DC;
+    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D21; --ink-soft:#454B52; --line:#D3D8D2;
     --c-life:#3B4C7A; --c-life-bg:#EAEDF5;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   body{
     font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
-    background:var(--bg); color:var(--ink); line-height:1.75;
+    background:var(--bg); color:var(--ink); line-height:1.85;
     -webkit-font-smoothing:antialiased;
     padding-top:env(safe-area-inset-top,0px);
     padding-bottom:env(safe-area-inset-bottom,0px);
@@ -24,21 +24,48 @@
   .page{max-width:720px;margin:0 auto;padding:24px 16px 60px;}
   a{color:inherit;text-decoration:none;}
 
-  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 18px;}
-  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:13.5px;font-weight:700;color:var(--ink-soft);padding:6px 4px;}
+  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 20px;}
+  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:16px;font-weight:700;color:var(--c-life);padding:8px 4px;}
   .detail-head .titlewrap{flex:1;}
-  .detail-head .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.05em;color:var(--c-life);}
-  .detail-head h2{font-size:20px;font-weight:900;margin-top:2px;}
+  .detail-head .eyebrow{font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--c-life);}
+  .detail-head h2{font-size:24px;font-weight:900;margin-top:3px;}
 
-  .block{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px 18px;margin-bottom:14px;}
-  .block h4{font-size:13.5px;font-weight:700;margin-bottom:10px;}
-  .block .row{display:flex;gap:10px;font-size:14px;padding:7px 0;border-top:1px dotted var(--line);}
+  .block{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px;margin-bottom:16px;}
+  .block h4{font-size:16px;font-weight:900;margin-bottom:14px;color:var(--ink);}
+
+  .phase-list{display:flex;flex-direction:column;gap:10px;}
+  .phase{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:14px 14px;border-radius:10px;border:1px solid var(--line);
+  }
+  .phase .num{
+    flex:none;width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:15px;font-weight:900;color:#fff;background:#B7BEC8;
+    margin-top:1px;
+  }
+  .phase .body{flex:1;}
+  .phase .body .name-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .phase .body .name{font-size:16.5px;font-weight:700;}
+  .phase .body .span{font-size:14px;color:var(--ink-soft);margin-top:2px;}
+  .phase .body .desc{font-size:14.5px;color:var(--ink-soft);margin-top:5px;line-height:1.7;}
+  .phase.now{
+    background:var(--c-life-bg);border-color:var(--c-life);
+  }
+  .phase.now .num{background:var(--c-life);}
+  .phase.now .body .name{color:var(--c-life);}
+  .phase .tag{
+    flex:none;font-size:12.5px;font-weight:700;color:var(--c-life);
+    background:#fff;border:1px solid var(--c-life);border-radius:999px;padding:3px 10px;
+  }
+
+  .block .row{display:flex;gap:12px;font-size:17px;padding:11px 0;border-top:1px solid var(--line);}
   .block .row:first-child{border-top:none;}
-  .block .row .k{flex:none;width:84px;color:var(--ink-soft);font-size:12.5px;padding-top:1px;}
+  .block .row .k{flex:none;width:96px;color:var(--ink-soft);font-size:14.5px;font-weight:700;padding-top:2px;}
   .block .row .v{flex:1;}
-  .block .row .v .sub{display:block;font-size:12.5px;color:var(--ink-soft);margin-top:2px;}
+  .block .row .v .sub{display:block;font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.7;}
   .block ul.plain{list-style:none;}
-  .block ul.plain li{font-size:14px;padding:7px 0;border-top:1px dotted var(--line);}
+  .block ul.plain li{font-size:17px;padding:11px 0;border-top:1px solid var(--line);}
   .block ul.plain li:first-child{border-top:none;}
 </style>
 </head>
@@ -54,9 +81,47 @@
   </div>
 
   <div class="block">
+    <h4>人生の全体像（4フェーズ）</h4>
+    <div class="phase-list">
+      <div class="phase now">
+        <span class="num">1</span>
+        <span class="body">
+          <span class="name-row"><span class="name">支度期</span><span class="tag">今ここ</span></span>
+          <span class="span">今〜来年夏</span>
+          <span class="desc">今の場所にいながら、静かに次への準備を整える段階</span>
+        </span>
+      </div>
+      <div class="phase">
+        <span class="num">2</span>
+        <span class="body">
+          <span class="name-row"><span class="name">種まき期</span></span>
+          <span class="span">来年夏〜50歳</span>
+          <span class="desc">プロジェクトカンパニーで傭兵として実践しながら、色んな場所に種をまく段階</span>
+        </span>
+      </div>
+      <div class="phase">
+        <span class="num">3</span>
+        <span class="body">
+          <span class="name-row"><span class="name">彩色期</span></span>
+          <span class="span">50〜52歳</span>
+          <span class="desc">妻と2年間、日本・海外を旅する段階</span>
+        </span>
+      </div>
+      <div class="phase">
+        <span class="num">4</span>
+        <span class="body">
+          <span class="name-row"><span class="name">開花期</span></span>
+          <span class="span">52歳〜</span>
+          <span class="desc">蒔いた種が育ち、花開く、本番の段階</span>
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="block">
     <h4>現在地</h4>
     <div class="row"><span class="k">フェーズ</span><span class="v">支度期（今〜来年夏）</span></div>
-    <div class="row"><span class="k">独立時期</span><span class="v">2028年4月、プロジェクトカンパニーへ移行確定</span></div>
+    <div class="row"><span class="k">独立時期</span><span class="v">2028年4月、プロジェクトカンパニーへ移行予定<span class="sub">自由選択定年制度を活用して時期を調整。最終的な腹決めはこれから</span></span></div>
     <div class="row"><span class="k">優先順位</span><span class="v">①親と過ごす時間　②体力作り　③新たな学習（2026/9/14整理）</span></div>
   </div>
 
