@@ -19,7 +19,6 @@
     --c-run:#C9622A; --c-run-bg:#FBEEE4;
     --c-home:#B23A63; --c-home-bg:#FAEBF0;
     --c-nephew:#A88318; --c-nephew-bg:#F6F0DE;
-    --alert:#B93F2B; --alert-bg:#FCECE8;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{-webkit-text-size-adjust:100%;}
@@ -33,20 +32,30 @@
   .page{max-width:720px;margin:0 auto;padding:24px 16px 60px;}
   a{color:inherit;text-decoration:none;}
 
-  header.top{padding:8px 4px 20px;}
+  header.top{padding:8px 4px 22px;}
   header.top .kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
   header.top h1{font-size:23px;font-weight:900;line-height:1.5;margin-bottom:6px;}
   header.top .updated{font-size:13px;color:var(--ink-soft);}
 
-  .spotlight{display:block;background:var(--alert-bg);border:1px solid rgba(185,63,43,.28);border-radius:10px;padding:16px 18px;margin-bottom:20px;}
-  .spotlight .lbl{font-size:12px;font-weight:700;color:var(--alert);letter-spacing:.04em;margin-bottom:5px;}
-  .spotlight h2{font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink);}
-  .spotlight p{font-size:13.5px;color:var(--ink-soft);}
+  .section-title{
+    font-size:12.5px;font-weight:700;letter-spacing:.05em;color:var(--ink-soft);
+    margin:26px 2px 10px;
+  }
+  .section-title:first-of-type{margin-top:0;}
 
-  .upcoming{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;margin-bottom:22px;}
-  .upcoming .chip{flex:none;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;min-width:112px;}
-  .upcoming .chip .d{font-size:11.5px;color:var(--ink-soft);margin-bottom:3px;}
-  .upcoming .chip .t{font-size:13px;font-weight:700;line-height:1.4;}
+  .progress-list{
+    background:var(--panel);border:1px solid var(--line);border-radius:12px;
+    overflow:hidden;
+  }
+  .progress-list .item{
+    display:flex;align-items:baseline;gap:14px;
+    padding:13px 16px;border-top:1px solid var(--line);
+  }
+  .progress-list .item:first-child{border-top:none;}
+  .progress-list .item .d{
+    flex:none;width:64px;font-size:12.5px;font-weight:700;color:var(--ink-soft);
+  }
+  .progress-list .item .t{flex:1;font-size:14.5px;font-weight:500;}
 
   .topic-list{display:flex;flex-direction:column;gap:10px;}
   .topic-card{display:flex;align-items:center;gap:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px;-webkit-tap-highlight-color:transparent;}
@@ -75,21 +84,17 @@
     <p class="updated">2026年9月21日 時点</p>
   </header>
 
-  <a class="spotlight" href="life.html">
-    <p class="lbl">いちばん重いテーマ</p>
-    <h2>仕事での「当事者感覚の喪失」</h2>
-    <p>「感じない」と「反応しない」は別物。感じることを取り戻す練習中 →</p>
-  </a>
-
-  <div class="upcoming">
-    <div class="chip"><div class="d">10/5-6</div><div class="t">鬼怒川家族旅行</div></div>
-    <div class="chip"><div class="d">10月</div><div class="t">生成AIパスポート</div></div>
-    <div class="chip"><div class="d">11/7</div><div class="t">G検定</div></div>
-    <div class="chip"><div class="d">11/15</div><div class="t">かわさき多摩川</div></div>
-    <div class="chip"><div class="d">1〜2月</div><div class="t">代替ハーフ</div></div>
-    <div class="chip"><div class="d">27/2</div><div class="t">統計検定3級</div></div>
+  <p class="section-title">① 全体進捗</p>
+  <div class="progress-list">
+    <div class="item"><span class="d">10/5-6</span><span class="t">鬼怒川家族旅行</span></div>
+    <div class="item"><span class="d">10月</span><span class="t">生成AIパスポート受験</span></div>
+    <div class="item"><span class="d">11/7</span><span class="t">G検定受験</span></div>
+    <div class="item"><span class="d">11/15</span><span class="t">かわさき多摩川マラソン</span></div>
+    <div class="item"><span class="d">1〜2月</span><span class="t">代替ハーフマラソン</span></div>
+    <div class="item"><span class="d">27/2</span><span class="t">統計検定3級</span></div>
   </div>
 
+  <p class="section-title">② リンク集</p>
   <div class="topic-list">
     <a class="topic-card cat life" href="life.html">
       <span class="dot"></span>
