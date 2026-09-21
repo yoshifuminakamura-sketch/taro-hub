@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>TARO — 全体マップ</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="TARO">
+<meta name="theme-color" content="#3B4C7A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#22262B; --ink-soft:#5B6169; --line:#DDE1DC;
+    --c-life:#3B4C7A; --c-life-bg:#EAEDF5;
+    --c-study:#1E7F6E; --c-study-bg:#E6F2EF;
+    --c-run:#C9622A; --c-run-bg:#FBEEE4;
+    --c-home:#B23A63; --c-home-bg:#FAEBF0;
+    --c-nephew:#A88318; --c-nephew-bg:#F6F0DE;
+    --alert:#B93F2B; --alert-bg:#FCECE8;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  .page{max-width:720px;margin:0 auto;padding:24px 16px 60px;}
+  a{color:inherit;text-decoration:none;}
+
+  header.top{padding:8px 4px 20px;}
+  header.top .kicker{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--ink-soft);margin-bottom:8px;}
+  header.top h1{font-size:23px;font-weight:900;line-height:1.5;margin-bottom:6px;}
+  header.top .updated{font-size:13px;color:var(--ink-soft);}
+
+  .spotlight{display:block;background:var(--alert-bg);border:1px solid rgba(185,63,43,.28);border-radius:10px;padding:16px 18px;margin-bottom:20px;}
+  .spotlight .lbl{font-size:12px;font-weight:700;color:var(--alert);letter-spacing:.04em;margin-bottom:5px;}
+  .spotlight h2{font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink);}
+  .spotlight p{font-size:13.5px;color:var(--ink-soft);}
+
+  .upcoming{display:flex;gap:10px;overflow-x:auto;padding-bottom:4px;margin-bottom:22px;}
+  .upcoming .chip{flex:none;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:10px 14px;min-width:112px;}
+  .upcoming .chip .d{font-size:11.5px;color:var(--ink-soft);margin-bottom:3px;}
+  .upcoming .chip .t{font-size:13px;font-weight:700;line-height:1.4;}
+
+  .topic-list{display:flex;flex-direction:column;gap:10px;}
+  .topic-card{display:flex;align-items:center;gap:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px;-webkit-tap-highlight-color:transparent;}
+  .topic-card .dot{width:13px;height:13px;border-radius:50%;flex:none;}
+  .topic-card .body{flex:1;min-width:0;}
+  .topic-card .body h3{font-size:15.5px;font-weight:700;margin-bottom:3px;}
+  .topic-card .body p{font-size:12.5px;color:var(--ink-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .topic-card .badge{flex:none;font-size:11px;font-weight:700;padding:4px 10px;border-radius:999px;white-space:nowrap;}
+  .topic-card .chev{flex:none;color:var(--ink-soft);font-size:18px;opacity:.5;}
+
+  .cat.life .dot{background:var(--c-life);} .cat.life .badge{background:var(--c-life-bg);color:var(--c-life);}
+  .cat.study .dot{background:var(--c-study);} .cat.study .badge{background:var(--c-study-bg);color:var(--c-study);}
+  .cat.run .dot{background:var(--c-run);} .cat.run .badge{background:var(--c-run-bg);color:var(--c-run);}
+  .cat.home .dot{background:var(--c-home);} .cat.home .badge{background:var(--c-home-bg);color:var(--c-home);}
+  .cat.nephew .dot{background:var(--c-nephew);} .cat.nephew .badge{background:var(--c-nephew-bg);color:var(--c-nephew);}
+
+  footer.note{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);line-height:1.8;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="top">
+    <p class="kicker">TARO — 全体マップ</p>
+    <h1>いま、どうなってたっけ</h1>
+    <p class="updated">2026年9月21日 時点</p>
+  </header>
+
+  <a class="spotlight" href="life.html">
+    <p class="lbl">いちばん重いテーマ</p>
+    <h2>仕事での「当事者感覚の喪失」</h2>
+    <p>「感じない」と「反応しない」は別物。感じることを取り戻す練習中 →</p>
+  </a>
+
+  <div class="upcoming">
+    <div class="chip"><div class="d">10/5-6</div><div class="t">鬼怒川家族旅行</div></div>
+    <div class="chip"><div class="d">10月</div><div class="t">生成AIパスポート</div></div>
+    <div class="chip"><div class="d">11/7</div><div class="t">G検定</div></div>
+    <div class="chip"><div class="d">11/15</div><div class="t">かわさき多摩川</div></div>
+    <div class="chip"><div class="d">1〜2月</div><div class="t">代替ハーフ</div></div>
+    <div class="chip"><div class="d">27/2</div><div class="t">統計検定3級</div></div>
+  </div>
+
+  <div class="topic-list">
+    <a class="topic-card cat life" href="life.html">
+      <span class="dot"></span>
+      <span class="body"><h3>人生シフト（Horizon Lab）</h3><p>支度期。当事者感覚の喪失、継続フォロー中</p></span>
+      <span class="badge">進行中</span>
+      <span class="chev">›</span>
+    </a>
+    <a class="topic-card cat study" href="study.html">
+      <span class="dot"></span>
+      <span class="body"><h3>学習・資格</h3><p>G検定11/7、統計検定3級2月など</p></span>
+      <span class="badge">進行中</span>
+      <span class="chev">›</span>
+    </a>
+    <a class="topic-card cat run" href="run.html">
+      <span class="dot"></span>
+      <span class="body"><h3>マラソン・体力作り</h3><p>Week4、心拍管理を調整中</p></span>
+      <span class="badge">Week4</span>
+      <span class="chev">›</span>
+    </a>
+    <a class="topic-card cat home" href="home.html">
+      <span class="dot"></span>
+      <span class="body"><h3>実家・両親</h3><p>鬼怒川旅行が来週。サプリ・資産整理も</p></span>
+      <span class="badge">来週本番</span>
+      <span class="chev">›</span>
+    </a>
+    <a class="topic-card cat nephew" href="nephew.html">
+      <span class="dot"></span>
+      <span class="body"><h3>甥っ子の投資教育</h3><p>10月から書籍でスタート</p></span>
+      <span class="badge">10月〜</span>
+      <span class="chev">›</span>
+    </a>
+  </div>
+
+  <footer class="note">
+    各ページの中身は、月島に言えばいつでもチューニングできる。状況が動いたら「◯◯のページ更新して」でOK。
+  </footer>
+
+</div>
+</body>
+</html>
