@@ -58,6 +58,9 @@
   }
   .progress-list .item .t{flex:1;font-size:14.5px;font-weight:500;}
 
+  .progress-list.done .item .d{color:var(--c-study);}
+  .progress-list.done .item .d::before{content:"✓ ";}
+
   .topic-list{display:flex;flex-direction:column;gap:10px;}
   .topic-card{display:flex;align-items:center;gap:13px;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px 16px;-webkit-tap-highlight-color:transparent;}
   .topic-card .dot{width:13px;height:13px;border-radius:50%;flex:none;}
@@ -88,8 +91,6 @@
 
   <p class="section-title">① 全体進捗</p>
   <div class="progress-list">
-    <div class="item"><span class="d">10/5-6</span><span class="t">鬼怒川家族旅行</span></div>
-    <div class="item"><span class="d">10月</span><span class="t">生成AIパスポート受験</span></div>
     <div class="item"><span class="d">11/7</span><span class="t">G検定受験</span></div>
     <div class="item"><span class="d">11/15</span><span class="t">かわさき多摩川マラソン</span></div>
     <div class="item"><span class="d">1〜2月</span><span class="t">代替ハーフマラソン</span></div>
@@ -134,6 +135,12 @@
       <span class="badge">10月〜</span>
       <span class="chev">›</span>
     </a>
+  </div>
+
+  <p class="section-title">③ 完了タスク</p>
+  <div class="progress-list done">
+    <div class="item"><span class="d">10/10</span><span class="t">生成AIパスポート受験（結果待ち）</span></div>
+    <div class="item"><span class="d">10/5-6</span><span class="t">鬼怒川家族旅行</span></div>
   </div>
 
   <footer class="note">
