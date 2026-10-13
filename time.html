@@ -74,6 +74,12 @@
   .ev[style*="height:20px"] b{font-size:12.5px;}
   .ev[style*="height:20px"] i{font-size:11.5px;}
 
+  .rules{list-style:none;}
+  .rules li{border-radius:8px;border-left:5px solid #B4BBC2;background:#ECEFEA;padding:10px 14px;margin-bottom:8px;}
+  .rules li b{display:block;font-size:16px;font-weight:700;color:var(--ink);}
+  .rules li span{display:block;font-size:14.5px;color:var(--ink-soft);line-height:1.6;}
+  .rules li.r-study{background:#F7E6C4;border-left-color:#D08A1E;} .rules li.r-study b{font-weight:900;}
+  .rules li.r-free{background:#CFE6EB;border-left-color:#2B7A8C;} .rules li.r-free b{font-weight:900;}
   .tiles{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:2px 0 16px;}
   .tiles span{height:30px;border-radius:6px;}
   .t-gray1{background:#59616A;} .t-gray2{background:#848C95;} .t-gray3{background:#A6ADB4;}
@@ -115,20 +121,13 @@
   <p class="day-title">休日（月8日）</p>
 
   <div class="block">
-    <h4>休日の使い方<span class="total">1マス＝半日、16マスで8日</span></h4>
-    <div class="tiles">
-      <span class="t-gray1"></span><span class="t-gray1"></span>
-      <span class="t-gray2"></span><span class="t-gray2"></span>
-      <span class="t-gray3"></span><span class="t-gray3"></span>
-      <span class="t-study"></span><span class="t-study"></span><span class="t-study"></span><span class="t-study"></span><span class="t-study"></span><span class="t-study"></span>
-      <span class="t-free"></span><span class="t-free"></span><span class="t-free"></span><span class="t-free"></span>
-    </div>
-    <ul class="legend">
-      <li><span class="sw" style="background:#59616A"></span><span class="lk">実家へ行く</span><span class="lv">1日</span></li>
-      <li><span class="sw" style="background:#848C95"></span><span class="lk">妻と出かける</span><span class="lv">1日</span></li>
-      <li><span class="sw" style="background:#A6ADB4"></span><span class="lk">家のことをやる</span><span class="lv">半日×2日</span></li>
-      <li class="hl"><span class="sw" style="background:#D08A1E"></span><span class="lk">学習する</span><span class="lv">半日×6日</span></li>
-      <li class="hl"><span class="sw" style="background:#2B7A8C"></span><span class="lk">好きなことに使う</span><span class="lv">半日×4日</span></li>
+    <h4>休日のルール<span class="total">月8日の場合</span></h4>
+    <ul class="rules">
+      <li class="r-gray"><b>実家へ行く：1日</b><span>先に確保する</span></li>
+      <li class="r-gray"><b>妻と出かける：1日</b><span>先に確保する</span></li>
+      <li class="r-study"><b>自習日：6日</b><span>カレンダーに登録する。PMは約7時間（月42時間の枠）</span></li>
+      <li class="r-free"><b>AMは自由</b><span>ラン・家のこと・好きなことに使う</span></li>
+      <li class="r-gray"><b>自習日が潰れたら</b><span>同じ月内に振り替える</span></li>
     </ul>
   </div>
 
