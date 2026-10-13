@@ -74,6 +74,10 @@
   .ev[style*="height:20px"] b{font-size:12.5px;}
   .ev[style*="height:20px"] i{font-size:11.5px;}
 
+  .tiles{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:2px 0 16px;}
+  .tiles span{height:30px;border-radius:6px;}
+  .t-gray1{background:#59616A;} .t-gray2{background:#848C95;} .t-gray3{background:#A6ADB4;}
+  .t-study{background:#D08A1E;} .t-free{background:#2B7A8C;}
   .note{font-size:14px;color:var(--ink-soft);line-height:1.7;margin:0 2px 16px;}
 </style>
 </head>
@@ -106,6 +110,26 @@
   <div class="block">
     <h4>スケジュール</h4>
       <div class="cal" style="height:1056px"><div class="hl" style="top:0px"><span>0:00</span></div><div class="hl" style="top:44px"><span>1:00</span></div><div class="hl" style="top:88px"><span>2:00</span></div><div class="hl" style="top:132px"><span>3:00</span></div><div class="hl" style="top:176px"><span>4:00</span></div><div class="hl" style="top:220px"><span>5:00</span></div><div class="hl" style="top:264px"><span>6:00</span></div><div class="hl" style="top:308px"><span>7:00</span></div><div class="hl" style="top:352px"><span>8:00</span></div><div class="hl" style="top:396px"><span>9:00</span></div><div class="hl" style="top:440px"><span>10:00</span></div><div class="hl" style="top:484px"><span>11:00</span></div><div class="hl" style="top:528px"><span>12:00</span></div><div class="hl" style="top:572px"><span>13:00</span></div><div class="hl" style="top:616px"><span>14:00</span></div><div class="hl" style="top:660px"><span>15:00</span></div><div class="hl" style="top:704px"><span>16:00</span></div><div class="hl" style="top:748px"><span>17:00</span></div><div class="hl" style="top:792px"><span>18:00</span></div><div class="hl" style="top:836px"><span>19:00</span></div><div class="hl" style="top:880px"><span>20:00</span></div><div class="hl" style="top:924px"><span>21:00</span></div><div class="hl" style="top:968px"><span>22:00</span></div><div class="hl" style="top:1012px"><span>23:00</span></div><div class="hl" style="top:1056px"><span>24:00</span></div><div class="evs"><div class="ev sleep" style="top:1px;height:306px"><b>睡眠</b><i>前夜23:30〜7:00（7.5h）</i></div><div class="ev other" style="top:309px;height:20px"><b>身支度</b><i>7:00〜7:30</i></div><div class="ev study" style="top:331px;height:64px"><b>出勤（電車で学習）</b><i>7:30〜9:00（1.5h）</i></div><div class="ev work" style="top:397px;height:394px"><b>勤務</b><i>9:00〜18:00（9h）</i></div><div class="ev study" style="top:793px;height:42px"><b>帰宅（電車で学習）</b><i>18:00〜19:00（1h）</i></div><div class="ev free" style="top:837px;height:42px"><b>自由時間（軽く補食）</b><i>19:00〜20:00（1h）</i></div><div class="ev run" style="top:881px;height:64px"><b>ラン→風呂→ストレッチ</b><i>20:00〜21:30（1.5h）</i></div><div class="ev other" style="top:947px;height:64px"><b>食事・団らん</b><i>21:30〜23:00（1.5h）</i></div><div class="ev other" style="top:1013px;height:20px"><b>バッファ</b><i>23:00〜23:30</i></div><div class="ev sleep" style="top:1035px;height:20px"><b>睡眠</b><i>23:30〜</i></div></div></div>
+  </div>
+
+  <p class="day-title">休日（月8日）</p>
+
+  <div class="block">
+    <h4>休日の使い方<span class="total">1マス＝半日、16マスで8日</span></h4>
+    <div class="tiles">
+      <span class="t-gray1"></span><span class="t-gray1"></span>
+      <span class="t-gray2"></span><span class="t-gray2"></span>
+      <span class="t-gray3"></span><span class="t-gray3"></span>
+      <span class="t-study"></span><span class="t-study"></span><span class="t-study"></span><span class="t-study"></span><span class="t-study"></span><span class="t-study"></span>
+      <span class="t-free"></span><span class="t-free"></span><span class="t-free"></span><span class="t-free"></span>
+    </div>
+    <ul class="legend">
+      <li><span class="sw" style="background:#59616A"></span><span class="lk">実家へ行く</span><span class="lv">1日</span></li>
+      <li><span class="sw" style="background:#848C95"></span><span class="lk">妻と出かける</span><span class="lv">1日</span></li>
+      <li><span class="sw" style="background:#A6ADB4"></span><span class="lk">家のことをやる</span><span class="lv">半日×2日</span></li>
+      <li class="hl"><span class="sw" style="background:#D08A1E"></span><span class="lk">学習する</span><span class="lv">半日×6日</span></li>
+      <li class="hl"><span class="sw" style="background:#2B7A8C"></span><span class="lk">好きなことに使う</span><span class="lv">半日×4日</span></li>
+    </ul>
   </div>
 
 </div>
