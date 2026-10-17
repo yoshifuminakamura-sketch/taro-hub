@@ -21,6 +21,7 @@
     --c-nephew:#A88318; --c-nephew-bg:#F6F0DE;
     --c-house:#6B4FA0; --c-house-bg:#EFEBF6;
     --c-time:#2B7A8C; --c-time-bg:#E4F1F4;
+    --c-out:#8C5A3C; --c-out-bg:#F3EAE3;
   }
   *{box-sizing:border-box;margin:0;padding:0;}
   html{-webkit-text-size-adjust:100%;}
@@ -78,6 +79,7 @@
   .cat.nephew .dot{background:var(--c-nephew);} .cat.nephew .badge{background:var(--c-nephew-bg);color:var(--c-nephew);}
   .cat.house .dot{background:var(--c-house);} .cat.house .badge{background:var(--c-house-bg);color:var(--c-house);}
   .cat.time .dot{background:var(--c-time);} .cat.time .badge{background:var(--c-time-bg);color:var(--c-time);}
+  .cat.outing .dot{background:var(--c-out);} .cat.outing .badge{background:var(--c-out-bg);color:var(--c-out);}
 
   footer.note{margin-top:26px;padding-top:16px;border-top:1px solid var(--line);font-size:12px;color:var(--ink-soft);line-height:1.8;}
 </style>
@@ -120,6 +122,12 @@
       <span class="dot"></span>
       <span class="body"><h3>1日の使い方</h3><p>平日の時間配分とスケジュール</p></span>
       <span class="badge">新規</span>
+      <span class="chev">›</span>
+    </a>
+    <a class="topic-card cat outing" href="outing.html">
+      <span class="dot"></span>
+      <span class="body"><h3>毎月のお出かけ</h3><p>2025年1月から続く2人の記録</p></span>
+      <span class="badge">記録中</span>
       <span class="chev">›</span>
     </a>
     <a class="topic-card cat study" href="study.html">
