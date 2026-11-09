@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>4月以降の1日の使い方 — TARO</title>
+<meta name="theme-color" content="#2B7A8C">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D21; --ink-soft:#454B52; --line:#D3D8D2;
+    --c-time:#2B7A8C; --c-time-bg:#E4F1F4; --bar:#B4BBC2;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  .page{max-width:720px;margin:0 auto;padding:24px 16px 60px;}
+  a{color:inherit;text-decoration:none;}
+
+  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 20px;}
+  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:16px;font-weight:700;color:var(--c-time);padding:8px 4px;}
+  .detail-head .titlewrap{flex:1;}
+  .detail-head .eyebrow{font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--c-time);}
+  .detail-head h2{font-size:24px;font-weight:900;margin-top:3px;}
+
+  .lead-block{
+    background:var(--c-time-bg);border:1px solid var(--c-time);
+    border-radius:14px;padding:18px 20px;margin-bottom:16px;
+  }
+  .lead-block h4{font-size:15px;font-weight:900;color:var(--c-time);margin-bottom:8px;}
+  .lead-block ul{list-style:none;}
+  .lead-block li{font-size:16px;font-weight:700;padding:6px 0 6px 22px;position:relative;line-height:1.7;}
+  .lead-block li::before{content:"✓";position:absolute;left:0;color:var(--c-time);font-weight:900;}
+
+  .day-title{font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--ink-soft);margin:26px 2px 10px;}
+
+  .block{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px;margin-bottom:16px;}
+  .block h4{font-size:16px;font-weight:900;margin-bottom:14px;color:var(--ink);}
+  .block h4 .total{font-size:13px;font-weight:500;color:var(--ink-soft);margin-left:6px;}
+
+  .donut{display:block;width:230px;height:230px;margin:2px auto 14px;}
+  .donut .dc{font-size:7px;font-weight:900;fill:var(--ink);font-family:inherit;}
+  .donut .ds{font-size:2.8px;fill:var(--ink-soft);font-family:inherit;}
+  .legend{list-style:none;}
+  .legend li{display:flex;align-items:center;gap:10px;padding:6px 0;font-size:15px;}
+  .legend .sw{flex:none;width:14px;height:14px;border-radius:4px;}
+  .legend .lk{flex:1;}
+  .legend .lv{flex:none;font-weight:700;color:var(--ink-soft);}
+  .legend li.hl .lk,.legend li.hl .lv{font-weight:900;color:var(--ink);}
+
+  .cal{position:relative;margin-left:0;}
+  .cal .hl{position:absolute;left:0;right:0;height:0;border-top:1px solid var(--line);}
+  .cal .hl span{position:absolute;left:0;top:-8px;font-size:11px;color:var(--ink-soft);background:var(--panel);padding-right:4px;width:38px;}
+  .cal .evs{position:absolute;left:44px;right:0;top:0;bottom:0;}
+  .ev{position:absolute;left:0;right:0;border-radius:8px;border-left:5px solid #B4BBC2;background:#ECEFEA;padding:2px 10px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;line-height:1.35;}
+  .ev b{font-size:14px;font-weight:700;color:var(--ink);}
+  .ev i{font-style:normal;font-size:12px;color:var(--ink-soft);}
+  .ev.sleep{background:#E3E7EB;border-left-color:#7B848D;}
+  .ev.work{background:#DDE1E5;border-left-color:#59616A;}
+  .ev.free{background:#CFE6EB;border-left-color:var(--c-time);}
+  .ev.free b{font-weight:900;}
+  .ev.run{background:#F4DBE4;border-left-color:#B23A63;}
+  .ev.run b{font-weight:900;}
+  .ev.study{background:#F7E6C4;border-left-color:#D08A1E;}
+  .ev.study b{font-weight:900;}
+  .ev.explore{background:#E6E1F3;border-left-color:#6B5BA8;}
+  .ev.explore b{font-weight:900;}
+  .ev[style*="height:20px"]{flex-direction:row;align-items:center;justify-content:flex-start;gap:8px;padding:0 10px;}
+  .ev[style*="height:20px"] b{font-size:12.5px;}
+  .ev[style*="height:20px"] i{font-size:11.5px;}
+
+  .rules{list-style:none;}
+  .rules li{border-radius:8px;border-left:5px solid #B4BBC2;background:#ECEFEA;padding:10px 14px;margin-bottom:8px;}
+  .rules li b{display:block;font-size:16px;font-weight:700;color:var(--ink);}
+  .rules li span{display:block;font-size:14.5px;color:var(--ink-soft);line-height:1.6;}
+  .rules li.r-study{background:#F7E6C4;border-left-color:#D08A1E;} .rules li.r-study b{font-weight:900;}
+  .rules li.r-free{background:#CFE6EB;border-left-color:#2B7A8C;} .rules li.r-free b{font-weight:900;}
+  .tiles{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin:2px 0 16px;}
+  .tiles span{height:30px;border-radius:6px;}
+  .t-gray1{background:#59616A;} .t-gray2{background:#848C95;} .t-gray3{background:#A6ADB4;}
+  .t-study{background:#D08A1E;} .rules li.r-explore{background:#E6E1F3;border-left-color:#6B5BA8;} .rules li.r-explore b{font-weight:900;} .t-free{background:#2B7A8C;}
+  .note{font-size:14px;color:var(--ink-soft);line-height:1.7;margin:0 2px 16px;}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="detail-head">
+    <a class="back" href="index.html">‹ 一覧</a>
+    <span class="titlewrap">
+      <span class="eyebrow">暮らしのリズム（2027年4月〜）</span>
+      <h2>4月以降の1日の使い方</h2>
+    </span>
+  </div>
+
+  <div class="lead-block">
+    <h4>意識すること</h4>
+    <ul>
+      <li>稼ぐことを前提にしない1年。働く場合は、週3まで</li>
+      <li>土台は、親・健康・家族の時間。先に入れる</li>
+      <li>決めすぎない。空白（遊び枠）を、あえて残す</li>
+    </ul>
+  </div>
+
+  <p class="note">たたき台（2026/11/10）。決まっていないところは「仮」「案」と書いてある。今の「1日の使い方」ページは、そのまま残している。</p>
+
+  <p class="day-title">働かない日（週に2〜5日）</p>
+
+  <div class="block">
+    <h4>時間配分<span class="total">合計24時間</span></h4>
+    <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="時間配分の円グラフ"><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#7B848D" stroke-width="5" stroke-dasharray="30.75 69.25" stroke-dashoffset="-0.00" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#D08A1E" stroke-width="6.2" stroke-dasharray="12.00 88.00" stroke-dashoffset="-31.25" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#6B5BA8" stroke-width="6.2" stroke-dasharray="12.00 88.00" stroke-dashoffset="-43.75" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#B23A63" stroke-width="6.2" stroke-dasharray="5.75 94.25" stroke-dashoffset="-56.25" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#9AA3AB" stroke-width="5" stroke-dasharray="16.17 83.83" stroke-dashoffset="-62.50" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#B4BBC2" stroke-width="5" stroke-dasharray="3.67 96.33" stroke-dashoffset="-79.17" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#2B7A8C" stroke-width="6.2" stroke-dasharray="16.17 83.83" stroke-dashoffset="-83.33" transform="rotate(-90 21 21)"/><text x="21" y="22.2" text-anchor="middle" class="dc">24h</text><text x="21" y="26.6" text-anchor="middle" class="ds">1日</text></svg><ul class="legend"><li class=""><span class="sw" style="background:#7B848D"></span><span class="lk">睡眠</span><span class="lv">7.5h</span></li><li class="hl"><span class="sw" style="background:#D08A1E"></span><span class="lk">学習</span><span class="lv">3h</span></li><li class="hl"><span class="sw" style="background:#6B5BA8"></span><span class="lk">探索・実験</span><span class="lv">3h</span></li><li class="hl"><span class="sw" style="background:#B23A63"></span><span class="lk">ラン＆入浴＆ストレッチ</span><span class="lv">1.5h</span></li><li class=""><span class="sw" style="background:#9AA3AB"></span><span class="lk">食事・団らん・家のこと</span><span class="lv">4h</span></li><li class=""><span class="sw" style="background:#B4BBC2"></span><span class="lk">身支度・バッファ</span><span class="lv">1h</span></li><li class="hl"><span class="sw" style="background:#2B7A8C"></span><span class="lk">遊び枠・自由時間</span><span class="lv">4h</span></li></ul>
+  </div>
+
+  <div class="block">
+    <h4>スケジュール（仮）</h4>
+    <div class="cal" style="height:1056px"><div class="hl" style="top:0px"><span>0:00</span></div><div class="hl" style="top:44px"><span>1:00</span></div><div class="hl" style="top:88px"><span>2:00</span></div><div class="hl" style="top:132px"><span>3:00</span></div><div class="hl" style="top:176px"><span>4:00</span></div><div class="hl" style="top:220px"><span>5:00</span></div><div class="hl" style="top:264px"><span>6:00</span></div><div class="hl" style="top:308px"><span>7:00</span></div><div class="hl" style="top:352px"><span>8:00</span></div><div class="hl" style="top:396px"><span>9:00</span></div><div class="hl" style="top:440px"><span>10:00</span></div><div class="hl" style="top:484px"><span>11:00</span></div><div class="hl" style="top:528px"><span>12:00</span></div><div class="hl" style="top:572px"><span>13:00</span></div><div class="hl" style="top:616px"><span>14:00</span></div><div class="hl" style="top:660px"><span>15:00</span></div><div class="hl" style="top:704px"><span>16:00</span></div><div class="hl" style="top:748px"><span>17:00</span></div><div class="hl" style="top:792px"><span>18:00</span></div><div class="hl" style="top:836px"><span>19:00</span></div><div class="hl" style="top:880px"><span>20:00</span></div><div class="hl" style="top:924px"><span>21:00</span></div><div class="hl" style="top:968px"><span>22:00</span></div><div class="hl" style="top:1012px"><span>23:00</span></div><div class="hl" style="top:1056px"><span>24:00</span></div><div class="evs"><div class="ev sleep" style="top:1px;height:306px"><b>睡眠</b><i>前夜23:30〜7:00（7.5h）</i></div><div class="ev other" style="top:309px;height:20px"><b>身支度</b><i>7:00〜7:30</i></div><div class="ev other" style="top:331px;height:64px"><b>朝食・家のこと</b><i>7:30〜9:00（1.5h）</i></div><div class="ev study" style="top:397px;height:130px"><b>学習（集中ブロック）</b><i>9:00〜12:00（3h）</i></div><div class="ev other" style="top:529px;height:42px"><b>昼食・団らん</b><i>12:00〜13:00（1h）</i></div><div class="ev explore" style="top:573px;height:130px"><b>探索・実験</b><i>13:00〜16:00（3h）コンテンツ・小さな仕事など</i></div><div class="ev run" style="top:705px;height:64px"><b>ラン→風呂→ストレッチ</b><i>16:00〜17:30（1.5h）</i></div><div class="ev free" style="top:771px;height:64px"><b>遊び枠（予定を入れない）</b><i>17:30〜19:00（1.5h）</i></div><div class="ev other" style="top:837px;height:64px"><b>夕食・団らん</b><i>19:00〜20:30（1.5h）</i></div><div class="ev free" style="top:903px;height:108px"><b>自由時間</b><i>20:30〜23:00（2.5h）</i></div><div class="ev other" style="top:1013px;height:20px"><b>バッファ</b><i>23:00〜23:30</i></div><div class="ev sleep" style="top:1035px;height:20px"><b>睡眠</b><i>23:30〜</i></div></div></div>
+  </div>
+
+  <p class="day-title">働く日（週3まで）</p>
+
+  <p class="note">場所や時間は、仕事先次第。ここでは、今の平日と同じ形を仮置きしている。</p>
+
+  <div class="block">
+    <h4>時間配分<span class="total">合計24時間</span></h4>
+    <svg class="donut" viewBox="0 0 42 42" role="img" aria-label="時間配分の円グラフ"><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#59616A" stroke-width="5" stroke-dasharray="37.00 63.00" stroke-dashoffset="-0.00" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#7B848D" stroke-width="5" stroke-dasharray="30.75 69.25" stroke-dashoffset="-37.50" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#D08A1E" stroke-width="6.2" stroke-dasharray="9.92 90.08" stroke-dashoffset="-68.75" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#9AA3AB" stroke-width="5" stroke-dasharray="5.75 94.25" stroke-dashoffset="-79.17" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#B23A63" stroke-width="6.2" stroke-dasharray="5.75 94.25" stroke-dashoffset="-85.42" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#2B7A8C" stroke-width="6.2" stroke-dasharray="3.67 96.33" stroke-dashoffset="-91.67" transform="rotate(-90 21 21)"/><circle cx="21" cy="21" r="15.9155" fill="none" stroke="#B4BBC2" stroke-width="5" stroke-dasharray="3.67 96.33" stroke-dashoffset="-95.83" transform="rotate(-90 21 21)"/><text x="21" y="22.2" text-anchor="middle" class="dc">24h</text><text x="21" y="26.6" text-anchor="middle" class="ds">1日</text></svg><ul class="legend"><li class=""><span class="sw" style="background:#59616A"></span><span class="lk">仕事</span><span class="lv">9h</span></li><li class=""><span class="sw" style="background:#7B848D"></span><span class="lk">睡眠</span><span class="lv">7.5h</span></li><li class="hl"><span class="sw" style="background:#D08A1E"></span><span class="lk">出勤＆学習</span><span class="lv">2.5h</span></li><li class=""><span class="sw" style="background:#9AA3AB"></span><span class="lk">食事・団らん</span><span class="lv">1.5h</span></li><li class="hl"><span class="sw" style="background:#B23A63"></span><span class="lk">ラン＆入浴＆ストレッチ</span><span class="lv">1.5h</span></li><li class="hl"><span class="sw" style="background:#2B7A8C"></span><span class="lk">自由時間</span><span class="lv">1h</span></li><li class=""><span class="sw" style="background:#B4BBC2"></span><span class="lk">身支度・バッファ</span><span class="lv">1h</span></li></ul>
+  </div>
+
+  <div class="block">
+    <h4>スケジュール（仮）</h4>
+    <div class="cal" style="height:1056px"><div class="hl" style="top:0px"><span>0:00</span></div><div class="hl" style="top:44px"><span>1:00</span></div><div class="hl" style="top:88px"><span>2:00</span></div><div class="hl" style="top:132px"><span>3:00</span></div><div class="hl" style="top:176px"><span>4:00</span></div><div class="hl" style="top:220px"><span>5:00</span></div><div class="hl" style="top:264px"><span>6:00</span></div><div class="hl" style="top:308px"><span>7:00</span></div><div class="hl" style="top:352px"><span>8:00</span></div><div class="hl" style="top:396px"><span>9:00</span></div><div class="hl" style="top:440px"><span>10:00</span></div><div class="hl" style="top:484px"><span>11:00</span></div><div class="hl" style="top:528px"><span>12:00</span></div><div class="hl" style="top:572px"><span>13:00</span></div><div class="hl" style="top:616px"><span>14:00</span></div><div class="hl" style="top:660px"><span>15:00</span></div><div class="hl" style="top:704px"><span>16:00</span></div><div class="hl" style="top:748px"><span>17:00</span></div><div class="hl" style="top:792px"><span>18:00</span></div><div class="hl" style="top:836px"><span>19:00</span></div><div class="hl" style="top:880px"><span>20:00</span></div><div class="hl" style="top:924px"><span>21:00</span></div><div class="hl" style="top:968px"><span>22:00</span></div><div class="hl" style="top:1012px"><span>23:00</span></div><div class="hl" style="top:1056px"><span>24:00</span></div><div class="evs"><div class="ev sleep" style="top:1px;height:306px"><b>睡眠</b><i>前夜23:30〜7:00（7.5h）</i></div><div class="ev other" style="top:309px;height:20px"><b>身支度</b><i>7:00〜7:30</i></div><div class="ev study" style="top:331px;height:64px"><b>出勤（電車で学習）</b><i>7:30〜9:00（1.5h）</i></div><div class="ev work" style="top:397px;height:394px"><b>仕事</b><i>9:00〜18:00（9h）</i></div><div class="ev study" style="top:793px;height:42px"><b>帰宅（電車で学習）</b><i>18:00〜19:00（1h）</i></div><div class="ev free" style="top:837px;height:42px"><b>自由時間（軽く補食）</b><i>19:00〜20:00（1h）</i></div><div class="ev run" style="top:881px;height:64px"><b>ラン→風呂→ストレッチ</b><i>20:00〜21:30（1.5h）</i></div><div class="ev other" style="top:947px;height:64px"><b>食事・団らん</b><i>21:30〜23:00（1.5h）</i></div><div class="ev other" style="top:1013px;height:20px"><b>バッファ</b><i>23:00〜23:30</i></div><div class="ev sleep" style="top:1035px;height:20px"><b>睡眠</b><i>23:30〜</i></div></div></div>
+  </div>
+
+  <p class="day-title">1週間のルール</p>
+
+  <div class="block">
+    <h4>先に決めておくこと</h4>
+    <ul class="rules">
+      <li class="r-gray"><b>働く日：週3まで</b><span>上限。譲らない。働かない週があってもよい</span></li>
+      <li class="r-gray"><b>実家へ行く：月2回（仮）</b><span>先に確保する</span></li>
+      <li class="r-gray"><b>妻と出かける：週1回（仮）</b><span>先に確保する</span></li>
+      <li class="r-free"><b>完全に空ける日：週1日</b><span>予定を入れない。やりたくなったことをやる</span></li>
+      <li class="r-study"><b>学習：働かない日の午前</b><span>集中ブロックを先に置く</span></li>
+      <li class="r-explore"><b>探索・実験：働かない日の午後</b><span>金額より、手応えと経験を見る</span></li>
+      <li class="r-gray"><b>月1回の振り返り（案）</b><span>自分の価値観に沿って時間を使えているか、満足できているかを見る</span></li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h4>1週間の目安<span class="total">働く日3・働かない日4の場合</span></h4>
+    <ul class="legend">
+      <li class="hl"><span class="sw" style="background:#D08A1E"></span><span class="lk">学習</span><span class="lv">約20h</span></li>
+      <li class="hl"><span class="sw" style="background:#6B5BA8"></span><span class="lk">探索・実験</span><span class="lv">約12h</span></li>
+      <li class="hl"><span class="sw" style="background:#B23A63"></span><span class="lk">ラン＆入浴＆ストレッチ</span><span class="lv">約10.5h</span></li>
+      <li class="hl"><span class="sw" style="background:#2B7A8C"></span><span class="lk">遊び枠・自由時間</span><span class="lv">約19h</span></li>
+    </ul>
+    <p class="note" style="margin-top:10px">学習は、働く日の電車の中（約7.5h）を含む。</p>
+  </div>
+
+</div>
+</body>
+</html>
