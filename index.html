@@ -60,6 +60,7 @@
   }
   .progress-list .item .t{flex:1;font-size:14.5px;font-weight:500;}
 
+  .progress-list .item .t .lnk{display:block;margin-top:3px;font-size:12.5px;font-weight:500;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;}
   .progress-list.done .item .d{color:var(--c-study);}
   .progress-list.done .item .d::before{content:"✓ ";}
 
@@ -90,12 +91,11 @@
   <header class="top">
     <p class="kicker">TARO — 全体マップ</p>
     <h1>いま、どうなってたっけ</h1>
-    <p class="updated">2026年11月7日 時点</p>
+    <p class="updated">2026年11月15日 時点</p>
   </header>
 
   <p class="section-title">① 全体進捗</p>
   <div class="progress-list">
-    <div class="item"><span class="d">11/15</span><span class="t">かわさき多摩川マラソン</span></div>
     <div class="item"><span class="d">11/22</span><span class="t">実家訪問（予定）</span></div>
     <div class="item"><span class="d">11/25</span><span class="t">大阪の新幹線（往復）を予約</span></div>
     <div class="item"><span class="d">12/19</span><span class="t">AWS Cloud Practitioner受験（自宅オンライン）</span></div>
@@ -165,8 +165,9 @@
 
   <p class="section-title">③ 完了タスク</p>
   <div class="progress-list done">
+    <div class="item"><span class="d">11/15</span><span class="t">かわさき多摩川マラソン（ハーフ）<a class="lnk" href="https://claude.ai/artifact/LrpY4ynqsQSXpBais6eUm8" target="_blank" rel="noopener">当日の行動プラン</a></span></div>
     <div class="item"><span class="d">10/10</span><span class="t">生成AIパスポート受験（結果待ち）</span></div>
-    <div class="item"><span class="d">10/5-6</span><span class="t">鬼怒川家族旅行</span></div>
+    <div class="item"><span class="d">10/5-6</span><span class="t">鬼怒川家族旅行<a class="lnk" href="https://drive.google.com/file/d/1cUhDplvkdKr8cM_BTptFqFk6xajglDxP/view" target="_blank" rel="noopener">旅のしおり（確定版）</a></span></div>
   </div>
 
   <footer class="note">
