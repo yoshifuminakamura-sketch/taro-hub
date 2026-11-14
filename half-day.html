@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#C9622A">
+<title>かわさきハーフ 行動プラン</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
+<style>
+  /* Layout: 一本の縦の時間軸。左に時刻、右に行程。紅葉の赤は「今日の主役」の印だけに使う */
+  :root {
+    --bg: #f6f5f1;
+    --surface: #ffffff;
+    --ink: #1d1c19;
+    --ink-2: #45423b;
+    --ink-3: #6b675e;
+    --line: #e2dfd5;
+    --maple: #b8361f;
+    --maple-soft: #f6e3dc;
+    --moss: #4f6b3a;
+    --moss-soft: #e6ecdd;
+    --gold: #a8741a;
+    --gold-soft: #f4ead6;
+    --f-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", serif;
+    --f-body: "Zen Kaku Gothic New", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141412; --surface: #1d1c1a; --ink: #eeece6; --ink-2: #d2cec4; --ink-3: #aaa69b;
+      --line: #2f2d29; --maple: #e5684e; --maple-soft: #3a211b; --moss: #9bba7f; --moss-soft: #232b1d;
+      --gold: #d9a54a; --gold-soft: #33291a; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141412; --surface: #1d1c1a; --ink: #eeece6; --ink-2: #d2cec4; --ink-3: #aaa69b;
+    --line: #2f2d29; --maple: #e5684e; --maple-soft: #3a211b; --moss: #9bba7f; --moss-soft: #232b1d;
+    --gold: #d9a54a; --gold-soft: #33291a; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg); color: var(--ink);
+    font: 17px/1.8 var(--f-body);
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  .wrap { max-width: 680px; margin: 0 auto; padding-block: 28px 64px; display: grid; gap: 28px; }
+
+  header { display: grid; gap: 10px; }
+  .eyebrow { font-size: 15px; letter-spacing: .12em; color: var(--maple); font-weight: 700; }
+  h1 { font-family: var(--f-display); font-weight: 800; font-size: clamp(30px, 8vw, 40px); line-height: 1.3; margin: 0; text-wrap: balance; }
+  .lede { color: var(--ink-2); margin: 0; }
+  .facts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .chip { font-size: 15px; padding: 3px 10px; border-radius: 999px; background: var(--surface); border: 1px solid var(--line); color: var(--ink-2); }
+  .chip b { color: var(--ink); font-weight: 700; }
+  .chip.koyo { background: var(--maple-soft); border-color: transparent; color: var(--maple); font-weight: 700; }
+
+  h2 { font-family: var(--f-display); font-weight: 700; font-size: 23px; margin: 0 0 12px; }
+
+  /* timeline */
+  .tl { list-style: none; margin: 0; padding: 0; }
+  .step { display: grid; grid-template-columns: 64px 1fr; gap: 0 14px; position: relative; }
+  .time { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 17px; padding-top: 14px; text-align: right; color: var(--ink); }
+  .body { position: relative; padding: 12px 0 18px 20px; border-left: 2px solid var(--line); min-width: 0; }
+  .body::before { content: ""; position: absolute; left: -7px; top: 20px; width: 12px; height: 12px; border-radius: 50%; background: var(--bg); border: 2px solid var(--ink-3); }
+  .step.key .body::before { background: var(--maple); border-color: var(--maple); }
+  .step.move .body::before { width: 8px; height: 8px; left: -5px; top: 22px; border-color: var(--line); background: var(--line); }
+  .step:last-child .body { border-left-color: transparent; }
+  .title { font-weight: 700; font-size: 19px; margin: 0; line-height: 1.5; }
+  .step.move .title { font-weight: 500; color: var(--ink-2); font-size: 17px; }
+  .tag { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .06em; padding: 1px 8px; border-radius: 4px; margin-right: 6px; vertical-align: 2px; }
+  .tag.food { background: var(--maple-soft); color: var(--maple); }
+  .tag.shrine { background: var(--gold-soft); color: var(--gold); }
+  .tag.garden { background: var(--moss-soft); color: var(--moss); }
+  .tag.koyo { background: var(--maple); color: #fff; }
+  .desc { margin: 4px 0 0; color: var(--ink-2); }
+  .desc a { color: var(--ink); text-underline-offset: 3px; }
+  .why { margin: 6px 0 0; font-size: 17px; }
+  .alt { margin: 8px 0 0; font-size: 15px; color: var(--ink-3); line-height: 1.65; }
+  .alt b { color: var(--ink-2); font-weight: 500; }
+
+  /* checklist */
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; }
+  .todo { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+  .todo label { display: grid; grid-template-columns: 24px 1fr; gap: 10px; align-items: start; cursor: pointer; }
+  .todo input { margin: 6px 0 0; width: 20px; height: 20px; accent-color: var(--maple); }
+  .todo input:checked + span { color: var(--ink-3); text-decoration: line-through; }
+  .todo small { display: block; color: var(--ink-3); font-size: 15px; }
+  .notes { margin: 0; padding-left: 1.2em; color: var(--ink-2); display: grid; gap: 4px; }
+  .foot { font-size: 15px; color: var(--ink-3); margin: 0; }
+  .fork { display: grid; gap: 10px; margin-top: 10px; }
+  .opt { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; }
+  .opt h3 { font-size: 18px; margin: 0 0 4px; font-weight: 700; }
+  .opt h3 .ab { display: inline-grid; place-items: center; width: 26px; height: 26px; border-radius: 50%; background: var(--maple); color: #fff; font-size: 15px; margin-right: 8px; vertical-align: 1px; }
+  .opt ul { margin: 6px 0 0; padding-left: 1.1em; color: var(--ink-2); display: grid; gap: 2px; }
+  .opt .pick { margin: 8px 0 0; font-size: 16px; color: var(--ink); font-weight: 500; }
+  table { width: 100%; border-collapse: collapse; font-size: 17px; }
+  th, td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--ink-3); font-size: 15px; font-weight: 700; }
+  td.n { font-variant-numeric: tabular-nums; white-space: nowrap; font-weight: 700; }
+  .stop { border-left: 4px solid var(--maple); background: var(--maple-soft); border-radius: 6px; padding: 10px 14px; }
+  .stop p { margin: 0; }
+  input:focus-visible, a:focus-visible { outline: 2px solid var(--maple); outline-offset: 2px; }
+</style>
+<style>
+  html{-webkit-text-size-adjust:100%;}
+  .wrap{grid-template-columns:minmax(0,1fr);}
+  .wrap > *{min-width:0;}
+  td.n{white-space:normal !important;}
+  table{width:100%;}
+  body{overflow-x:hidden;overflow-wrap:anywhere;}
+  .chip{display:inline-block;max-width:100%;line-height:1.6;}
+  .backlink{display:inline-block;font-size:16px;font-weight:700;color:var(--maple);text-decoration:none;padding:6px 0;}
+</style>
+</head>
+<body>
+
+
+<div class="wrap">
+  <a class="backlink" href="run.html">‹ マラソン・トレーニング</a>
+  <header>
+    <div class="eyebrow">11月15日（日）・かわさき多摩川マラソン ハーフ</div>
+    <h1><span style="display:inline-block">キロ7分で、</span><span style="display:inline-block">無理せず完走</span></h1>
+    <p class="lede">電車でひとりで会場へ。スタート 9:15、Fブロック（最後尾に近い）。背中を守りながら、気持ちよく走りきって、帰りはさやの湯。</p>
+    <div class="facts">
+      <span class="chip">会場 <b>Uvanceとどろきスタジアム（等々力陸上競技場）</b></span>
+      <span class="chip">天気 <b>くもり</b>・最高14℃ / 最低12℃・雨なし</span>
+      <span class="chip">待っている間は冷える</span>
+    </div>
+  </header>
+
+  <section class="card">
+    <h2>先に、確認しておくこと</h2>
+    <ul class="todo">
+      <li><label><input type="checkbox"><span>公式サイトの「参加案内」で、荷物預けの締め切り時間を見る<small>見せてもらった大会プログラムには、載っていなかった</small></span></label></li>
+      <li><label><input type="checkbox"><span>同じ参加案内で、ゴール全体の制限時間を見る<small>7:00/kmだと、ゴールは2時間30分前後（号砲から）</small></span></label></li>
+      <li><label><input type="checkbox"><span>乗換アプリで、日付を「明日（日曜）」にして、もう一度検索する<small>いまの画面は、今日の検索に見える。6:56発のままか確認</small></span></label></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>今夜のうちに</h2>
+    <ul class="todo">
+      <li><label><input type="checkbox" checked><span>ナンバーカードの裏に、緊急連絡先を書く<small>書いた（案内に「参加の前に必ず」とある）</small></span></label></li>
+      <li><label><input type="checkbox" checked><span>ナンバーカードを、走るシャツの胸につける<small>つけた。4か所。折らない・隠さない</small></span></label></li>
+      <li><label><input type="checkbox" checked><span>ランナーズチップを、シューズにつける<small>つけた。当日の朝は、歩いて確認するだけ</small></span></label></li>
+      <li><label><input type="checkbox"><span>走る服・シューズ・靴下・手袋・帽子を、ひとまとめに置く</span></label></li>
+      <li><label><input type="checkbox"><span>荷物の袋と、ゴミ袋（大きいもの）を用意する<small>ゴミ袋は、待っている間の防寒用。頭と腕の穴をあけておく</small></span></label></li>
+      <li><label><input type="checkbox"><span>補給（ジェルなど）と、ポーチ（IC・スマホ・鍵・小銭）を用意する</span></label></li>
+      <li><label><input type="checkbox"><span>朝食を決める。早めに寝る<small>お酒は控えめに</small></span></label></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>行き：蓮根から会場まで</h2>
+    <div class="card">
+      <ul class="notes">
+        <li><b>蓮根 → 新丸子</b>：三田線から、目黒で東急目黒線に直通（西谷行など）。Googleマップの検索では、<b>蓮根 6:56発 → 目黒 7:40 → 新丸子 7:57着</b>。IC 604円。降りたら<b>西口</b>へ。</li>
+        <li><b>新丸子 → 会場</b>：歩いて<b>19分（1.2km）</b>。会場に<b>8:15着</b>。</li>
+        <li>次の電車は、蓮根 7:06発と7:24発。7:06発だと、会場に8:25ごろ。7:24発は、荷物預けとトイレが厳しいので避ける。</li>
+        <li>いまの画面は、今日の検索に見える。<b>明日（日曜）の日付で、もう一度検索</b>して、同じ時刻か確認する。</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>当日の流れ</h2>
+    <ol class="tl">
+      <li class="step move"><div class="time">5:45</div><div class="body"><p class="title">起きる</p><p class="desc">背中を、少しずつひねるように動かしてほぐす（整骨院の先生の言うとおり）。</p></div></li>
+      <li class="step"><div class="time">6:15</div><div class="body"><p class="title"><span class="tag food">朝食</span>スタートの3時間前までに</p><p class="desc">ご飯やもち、うどん、バナナなど、お腹にやさしいもの。初めて食べるものは避ける。水もこまめに。</p></div></li>
+      <li class="step move"><div class="time">6:56</div><div class="body"><p class="title">蓮根駅発の三田線に乗る</p><p class="desc">走る服で、当日シューズを履いて家を出る。ナンバーカードは胸につけたまま。上にゴミ袋か上着を着る。<b>この電車に乗れるように</b>、少し早めに駅へ。</p></div></li>
+      <li class="step move"><div class="time">7:57</div><div class="body"><p class="title">新丸子駅に着く（西口）</p><p class="desc">会場まで、歩いて19分。</p></div></li>
+      <li class="step key"><div class="time">8:15</div><div class="body"><p class="title">会場に着く。ゲートを通る</p>
+        <p class="desc">参加者入口は<b>Aゲート</b>か<b>13番ゲート</b>。<b>9時以降は閉まる</b>ので、8:15までに入る。Bゲートからは入れない。地図には10番ゲートが「参加者出入口」とある。近いゲートを、当日の案内で確認する。8:20までには入りたい。</p></div></li>
+      <li class="step"><div class="time">8:20</div><div class="body"><p class="title">荷物の準備（着替えが必要なら、男子更衣室はコンコース）</p>
+        <p class="desc">走る服で来ているので、更衣室は使わなくていい。脱いだ上着や荷物を、袋にまとめる。ナンバーカードが、胸の見える位置にあるか確認。貴重品は預けられないので、<b>小さなポーチ</b>に入れて身につけるか、有料のコインロッカーへ。</p></div></li>
+      <li class="step"><div class="time">8:25</div><div class="body"><p class="title">チップの確認</p>
+        <p class="desc">家でつけたチップが、<b>ついているか・外れそうでないか・足に当たらないか</b>を、歩いて確認。チップは<b>ゴールのあとに回収される</b>ので、外して捨てない。</p></div></li>
+      <li class="step"><div class="time">8:30</div><div class="body"><p class="title">荷物を預ける</p>
+        <p class="desc"><b>荷物預かりタグ</b>を、荷物の袋につける。預ける場所は、競技場の<b>バックスタンド下（練習場）</b>。預けるときも受け取るときも、<b>ナンバーカードを見せる</b>。タグは大事に。</p></div></li>
+      <li class="step"><div class="time">8:35</div><div class="body"><p class="title">トイレ（最終）</p><p class="desc">混むので、並ぶ時間も入れておく。</p></div></li>
+      <li class="step"><div class="time">8:40</div><div class="body"><p class="title">ウォームアップ（軽く）</p><p class="desc">整列が始まる時刻。軽く歩く、足踏み、股関節まわし、腕を大きく振る。背中は、ゆっくりひねる。寒ければ、ゴミ袋を羽織ったまま。頑張りすぎない。</p></div></li>
+      <li class="step key"><div class="time">8:50</div><div class="body"><p class="title">Fブロックの位置へ</p><p class="desc">Fは「予想2時間10分〜」の、最後尾に近いブロック。Fのプラカードと、係員の指示に従う。最後尾からのスタートで大丈夫。足踏みで冷やさない。ゴミ袋は、<b>スタート直前に脱ぐ</b>。</p></div></li>
+      <li class="step"><div class="time">9:00</div><div class="body"><p class="title">開会式</p></div></li>
+      <li class="step key"><div class="time">9:15</div><div class="body"><p class="title"><span class="tag koyo">スタート</span>ハーフマラソン</p><p class="desc">決められた時間にスタートしないと、オープン参加（表彰の対象外）。最後尾なので、スタートラインを通るまでに2〜3分かかる。</p></div></li>
+      <li class="step key"><div class="time">11:45</div><div class="body"><p class="title">ゴール（目安）</p><p class="desc">7:00/kmなら、記録は約2時間27分40秒。スタートラインを通るまでの時間を足して、11:45ごろ。ゴール後に、チップを回収される。</p></div></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>走り方のプラン：キロ7分</h2>
+    <p class="desc" style="margin:0 0 8px">無理しない。11/12のジョグは7'06"/kmで、背中は痛くなかった。その感覚で。</p>
+    <table>
+      <tr><th>場所</th><th>ペース</th><th>記録（スタートラインから）</th></tr>
+      <tr><td class="n">0〜3km</td><td class="n">7:10前後</td><td>体を温める。背中の様子を見る</td></tr>
+      <tr><td class="n">5km</td><td class="n">7:00</td><td class="n">35:00</td></tr>
+      <tr><td class="n">10km</td><td class="n">7:00</td><td class="n">1:10:00</td></tr>
+      <tr><td class="n">14km</td><td class="n">7:00</td><td class="n">1:38:00</td></tr>
+      <tr><td class="n">17km</td><td class="n">7:00</td><td class="n">1:59:00</td></tr>
+      <tr><td class="n">18.5km</td><td class="n">7:00</td><td class="n">2:09:30</td></tr>
+      <tr><td class="n">ゴール</td><td class="n">余力で</td><td class="n">2:27:40</td></tr>
+    </table>
+    <p class="alt">給水所は、水とスポーツドリンク。コース上に7か所（2.2km・5.2km・7.1km・9.8km・14.3km・17km・18.5kmあたり）。毎回、少しずつ飲む。</p>
+    <p class="alt">4〜6kmは、10kmの先頭とすれ違う区間がある。ハーフのランナーは<b>コースの左側</b>。河川敷は一般の人もいるので、前後左右に気をつける。</p>
+  </section>
+
+  <section class="card">
+    <h2>関門（余裕のあるうちに通る）</h2>
+    <table>
+      <tr><th>場所</th><th>閉まる時刻</th><th>スタートの号砲から</th><th>7:00/kmの目安</th></tr>
+      <tr><td class="n">14km</td><td class="n">11:06</td><td>1時間51分以内</td><td class="n">約1:41（余裕 約10分）</td></tr>
+      <tr><td class="n">17km</td><td class="n">11:29</td><td>2時間14分以内</td><td class="n">約2:02（余裕 約12分）</td></tr>
+      <tr><td class="n">18.5km</td><td class="n">11:40</td><td>2時間25分以内</td><td class="n">約2:12（余裕 約12分）</td></tr>
+    </table>
+    <p class="alt">関門の時間は、号砲から数える。最後尾スタートの2〜3分も、入っている。<b>途中で7:20より遅くしない</b>こと。</p>
+    <p class="alt"><b>ゴールの制限時間</b>：2時間48分（ダッシュボードのメモ。2025年の情報の可能性があり、2026年は未確認）。7:00/kmなら、号砲から約2時間30分半でゴールなので、約17分の余裕。</p>
+  </section>
+
+  <section class="card">
+    <h2>背中の「ここまで」ライン</h2>
+    <div class="stop">
+      <p><b>走り出しの違和感</b>は、温まって消えるなら、そのまま。<br>
+      <b>鋭い痛み、じわじわ強くなる痛み、脚にひびく感じ</b>が出たら、すぐ歩く。歩いても治まらなければ、近くの救護の人に声をかけて、やめる。</p>
+    </div>
+    <p class="alt">コース上には、救護ステーションがある。2027年のフルとサブ4が目標。今日、無理をして長引かせるほうが、損。</p>
+  </section>
+
+  <section>
+    <h2>ゴールのあと〜帰り</h2>
+    <ol class="tl">
+      <li class="step key"><div class="time">11:45<br><span style="font-size:13px;font-weight:500;color:var(--ink-3)">ごろ</span></div><div class="body"><p class="title">ゴール。チップを回収される</p><p class="desc">歩いて、体を冷やさない。水分をとる。</p></div></li>
+      <li class="step"><div class="time">12:00</div><div class="body"><p class="title">荷物の受け取りと、着替え</p><p class="desc">荷物預かりで、ナンバーカードを見せて受け取る。男子更衣室で着替える。</p></div></li>
+      <li class="step"><div class="time">12:20</div><div class="body"><p class="title">Tシャツの引換</p><p class="desc">7番ゲートのあたり（7:30〜12:30）。ナンバーカードが必要。<b>12:30までなので、忘れずに</b>。</p></div></li>
+      <li class="step move"><div class="time">12:40</div><div class="body"><p class="title">会場を出る（10番ゲートから）</p><p class="desc">競技場からは、10番ゲートから。新丸子駅まで、歩く（約19分）。</p></div></li>
+      <li class="step"><div class="time">13:10</div><div class="body"><p class="title"><span class="tag food">食事</span>駅のまわりで、軽く</p><p class="desc">炭水化物とたんぱく質を、早めにとる。水分も。ここでしっかり食べすぎない（このあと、さやの湯でも食べるので）。</p></div></li>
+      <li class="step move"><div class="time">14:00</div><div class="body"><p class="title">新丸子から、三田線方面へ。志村坂上で降りる</p><p class="desc">新丸子から、目黒線と三田線の直通。1時間弱（目安。行きは蓮根まで約1時間）。座れる電車を選ぶ。体が冷えないように。</p></div></li>
+      <li class="step key"><div class="time">15:00</div><div class="body"><p class="title"><span class="tag garden">温泉</span>さやの湯（志村坂上）</p><p class="desc">行き慣れた場所で、ゆっくり。ごはんと温泉。サウナは、水分をとってから、長居しない。フラつきや動悸があれば、その日はやめる。日曜の営業時間は、行く前に確認。</p></div></li>
+      <li class="step move"><div class="time">夕方</div><div class="body"><p class="title">蓮根へ（志村坂上から2駅）</p><p class="desc">帰ったら、背中の様子を見る。明日は、休む。</p></div></li>
+    </ol>
+  </section>
+
+  <section class="card">
+    <h2>持ち物</h2>
+    <ul class="todo">
+      <li><label><input type="checkbox"><span>ナンバーカード（胸につけたもの）、予備の安全ピン</span></label></li>
+      <li><label><input type="checkbox"><span>荷物預かりタグ（封筒のなか）。チップは、シューズにつけたまま</span></label></li>
+      <li><label><input type="checkbox"><span>ウェア、シューズ（当日用）、靴下、帽子、手袋<small>最高14℃。アームウォーマーがあれば調整しやすい</small></span></label></li>
+      <li><label><input type="checkbox"><span>大きなゴミ袋（防寒）、荷物の袋</span></label></li>
+      <li><label><input type="checkbox"><span>補給（ジェルなど）、塩分</span></label></li>
+      <li><label><input type="checkbox"><span>小さなポーチ：スマホ（Suica・計測）、鍵、小銭<small>貴重品は預けられない。健康保険証は、2025年の案内にあった持ち物（2026年は未確認）</small></span></label></li>
+      <li><label><input type="checkbox"><span>着替え、タオル、ビニール袋（ぬれたものを入れる）、さやの湯の用意</span></label></li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>ここまでのトレーニング</h2>
+    <table>
+      <tr><th>フェーズ</th><th>期間</th><th>内容</th></tr>
+      <tr><td>1 距離を伸ばす</td><td class="n">9/15〜10/12<br>（Week4〜7）</td><td>週4〜5回、ロング走6km→8km→10km。月2回程度、ペース走を追加</td></tr>
+      <tr><td>2 仕上げ期</td><td class="n">10/13〜11/2<br>（Week8〜10）</td><td>週間ピーク35〜40km、ロング走10km→12〜13km→15〜16km。インターバル・坂道走を軽く追加</td></tr>
+      <tr><td>3 テーパリング</td><td class="n">11/3〜11/14<br>（Week11〜12）</td><td>走行距離を50〜60%に落として、疲労を抜く。距離を稼ごうとしない</td></tr>
+      <tr><td>🏁 本番</td><td class="n">11/15（日）</td><td>かわさき多摩川マラソン（ハーフ）</td></tr>
+    </table>
+    <p class="alt"><b>テーパリング期の状況</b>：体調を見ながら調整。無理に走らず、休養を優先した。11/15は、直前の体調を見て出走を判断する方針だった。</p>
+  </section>
+
+  <section>
+    <h2>メモ</h2>
+    <ul class="notes">
+      <li>行きの時刻は、Googleマップの検索（11月14日18:06）による。日曜の時刻は、日付を変えて確認する。</li>
+      <li>スケジュールは変更になることがあると、大会プログラムにある。</li>
+      <li>荷物預けの締め切りと、ゴール全体の制限時間は、公式サイトの参加案内で確認する。</li>
+      <li>さやの湯の営業時間は、行く前に確認する。</li>
+    </ul>
+  </section>
+
+  <p class="foot">大会プログラム（かわさき多摩川マラソン2026）、川崎市の資料、天気予報（11月14日）から作成。</p>
+</div>
+
+</body>
+</html>
