@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>2/14ハーフ 3ヶ月プラン — TARO</title>
+<meta name="theme-color" content="#C9622A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F4F5F2; --panel:#FFFFFF; --ink:#1A1D21; --ink-soft:#454B52; --line:#D3D8D2;
+    --c-run:#C9622A; --c-run-bg:#FBEEE4;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    background:var(--bg); color:var(--ink); line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    padding-top:env(safe-area-inset-top,0px);
+    padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  .page{max-width:720px;margin:0 auto;padding:24px 16px 60px;}
+  a{color:inherit;text-decoration:none;}
+
+  .detail-head{display:flex;align-items:center;gap:10px;padding:6px 2px 20px;}
+  .back{flex:none;display:flex;align-items:center;gap:4px;font-size:16px;font-weight:700;color:var(--c-run);padding:8px 4px;}
+  .detail-head .titlewrap{flex:1;}
+  .detail-head .eyebrow{font-size:13px;font-weight:700;letter-spacing:.05em;color:var(--c-run);}
+  .detail-head h2{font-size:24px;font-weight:900;margin-top:3px;}
+
+  .block{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 20px;margin-bottom:16px;}
+  .block h4{font-size:16px;font-weight:900;margin-bottom:14px;color:var(--ink);}
+
+  .block .row{display:flex;gap:12px;font-size:17px;padding:11px 0;border-top:1px solid var(--line);}
+  .block .row:first-child{border-top:none;}
+  .block .row .k{flex:none;width:96px;color:var(--ink-soft);font-size:14.5px;font-weight:700;padding-top:2px;}
+  .block .row .v{flex:1;}
+  .block .row .v .sub{display:block;font-size:15px;color:var(--ink-soft);margin-top:5px;line-height:1.7;}
+
+  .phase-list{display:flex;flex-direction:column;gap:10px;}
+  .phase{
+    display:flex;align-items:flex-start;gap:14px;
+    padding:14px 14px;border-radius:10px;border:1px solid var(--line);
+  }
+  .phase .num{
+    flex:none;width:34px;height:34px;border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:14px;font-weight:900;color:#fff;background:#B7BEC8;
+    margin-top:1px;
+  }
+  .phase.goal .num{background:#2B2F33;}
+  .phase .body{flex:1;}
+  .phase .body .name-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+  .phase .body .name{font-size:16.5px;font-weight:700;}
+  .phase .body .span{font-size:14px;color:var(--ink-soft);margin-top:2px;}
+  .phase .body .desc{font-size:14.5px;color:var(--ink-soft);margin-top:5px;line-height:1.7;}
+  .phase.now{background:var(--c-run-bg);border-color:var(--c-run);}
+  .phase.now .num{background:var(--c-run);}
+  .phase.now .body .name{color:var(--c-run);}
+  .phase.goal{background:#2B2F33;border-color:#2B2F33;}
+  .phase.goal .body .name, .phase.goal .body .span, .phase.goal .body .desc{color:#fff;}
+  .phase .tag{
+    flex:none;font-size:12px;font-weight:700;color:var(--c-run);
+    background:#fff;border:1px solid var(--c-run);border-radius:999px;padding:3px 10px;
+  }
+
+  .block h4 small{font-weight:500;color:var(--ink-soft);font-size:14px;margin-left:6px;}
+  .block .row .k{width:84px;}
+  .wk h4{margin-bottom:8px;}
+  .wk .tot{font-size:14.5px;color:var(--ink-soft);margin:-2px 0 6px;}
+  .wk.down{background:#F7F8F6;}
+  .wk.race{border-color:var(--c-run);background:var(--c-run-bg);}
+  ul.plain{list-style:none;}
+  ul.plain li{font-size:17px;padding:9px 0;border-top:1px solid var(--line);}
+  ul.plain li:first-child{border-top:none;}
+  table.t{width:100%;border-collapse:collapse;font-size:16px;}
+  table.t th,table.t td{text-align:left;padding:8px 6px;border-bottom:1px solid var(--line);vertical-align:top;}
+  table.t th{font-size:14.5px;color:var(--ink-soft);font-weight:700;white-space:nowrap;}
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="detail-head">
+    <a class="back" href="run.html">‹ マラソン</a>
+    <span class="titlewrap">
+      <span class="eyebrow">体力作り</span>
+      <h2>2/14ハーフ 3ヶ月プラン</h2>
+    </span>
+  </div>
+
+  <div class="block">
+    <h4>大会</h4>
+    <div class="row"><span class="k">日付</span><span class="v">2027年2月14日（日）　GARMIN RUN JAPAN</span></div>
+    <div class="row"><span class="k">会場</span><span class="v">国営昭和記念公園（立川）<span class="sub">公式の紹介では、フラットなコース。コースの詳細は未確認。</span></span></div>
+    <div class="row"><span class="k">種目</span><span class="v">21K（ハーフ）。定員2,500名で、大会初の21K</span></div>
+    <div class="row"><span class="k">制限時間</span><span class="v">180分以内（スタート時刻は未確認）</span></div>
+    <div class="row"><span class="k">出典</span><span class="v"><a href="https://bestcalendar.jp/press/157217" target="_blank" rel="noopener" style="color:var(--c-run);font-weight:700;">ベストカレンダー</a></span></div>
+  </div>
+
+  <div class="block">
+    <h4>目標</h4>
+    <div class="row"><span class="k">A</span><span class="v">キロ6'00"（約2:06）</span></div>
+    <div class="row"><span class="k">B</span><span class="v">キロ6'10"〜6'15"（約2:10〜2:12）</span></div>
+    <div class="row"><span class="k">C</span><span class="v">完走・怪我なし</span></div>
+    <div class="row"><span class="k">当日</span><span class="v">10km地点の余裕を見て、AかBを決める。最初の5kmは抑える。ラスト5kmで脚が止まらないことが、今回のテーマ</span></div>
+  </div>
+
+  <div class="block">
+    <h4>11/15の結果から（このプランの前提）</h4>
+    <div class="row"><span class="k">現在地</span><span class="v">ネット約2:11（平均6'14"/km）。呼吸は6'00"まで楽で、限界は脚の持久力</span></div>
+    <div class="row"><span class="k">伸ばす所</span><span class="v">後半（15km以降）に脚が止まらないこと。長い走りと、脚・お尻の筋トレを優先する</span></div>
+    <div class="row"><span class="k">変えない</span><span class="v">前半を抑えて、後半に上げる走り方。完走と怪我なしが最優先</span></div>
+  </div>
+
+  <div class="block">
+    <h4>1週間の型（目安）</h4>
+    <div class="row"><span class="k">イージー</span><span class="v">平日の夜に2〜3回。30〜45分（4〜5km）<span class="sub">ペース：7'00"〜7'30"/km。会話できるくらい。</span></span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">土日のどちらかで週1回<span class="sub">前半は7'00"〜7'15"/kmで走る。ゆっくり、長く。</span></span></div>
+    <div class="row"><span class="k">ペース練習</span><span class="v">1月（第9週）から、週1回まで<span class="sub">本番に近いペースを、短く入れる。</span></span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">週2回、15〜20分（第2週から）<span class="sub">平日の夜。走らない日か、イージーの日に。</span></span></div>
+    <div class="row"><span class="k">休み</span><span class="v">週1日は完全休養</span></div>
+    <div class="row"><span class="k">増やし方</span><span class="v">週の距離は、前の週の1割くらいまで。3週増やしたら、1週は減らす</span></div>
+  </div>
+
+  <div class="block">
+    <h4>筋トレのメニュー（15〜20分）</h4>
+    <div class="row"><span class="k">背中・体幹</span><span class="v">バードドッグ（左右10回×2）、プランク（30秒×2）、サイドプランク（左右20〜30秒×2）<span class="sub">ひねる動きは避ける。背中に違和感があれば、その日は減らすか休む。</span></span></div>
+    <div class="row"><span class="k">お尻・脚</span><span class="v">ヒップリフト（12回×2）、スクワット（12回×2。浅めから）、カーフレイズ（15回×2）<span class="sub">第4週から、後ろ足のランジ（左右8回×2）を足す。</span></span></div>
+    <div class="row"><span class="k">進め方</span><span class="v">最初の2週は、回数を半分にして、軽く始める<span class="sub">筋肉痛が強い日は、走る日と重ねない。</span></span></div>
+  </div>
+
+  <div class="block wk down">
+    <h4>第1週 11/16〜11/22<small>回復</small></h4>
+    <div class="tot">走る：0〜8km</div>
+    <div class="row"><span class="k">走る</span><span class="v">月〜水は完全休養。歩く（30〜60分）。木曜に痛みがほぼ消えていれば、20〜30分のごくゆっくりジョグ（7'30"より遅く）。まだ痛むなら、休みを延ばす</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">なし</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">日常の動き（階段・歩く）で痛みが気にならなくなってから走る。痛みが出たら、すぐ歩く。</span></div>
+  </div>
+
+  <div class="block wk ">
+    <h4>第2週 11/23〜11/29<small>再開</small></h4>
+    <div class="tot">走る：約16km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">2回（各4〜5km、30〜35分）</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">土日のどちらかで8km（60分前後）</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回。回数は半分で、軽く</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">1週間休んだあとの再開。速く走らない。</span></div>
+  </div>
+
+  <div class="block wk ">
+    <h4>第3週 11/30〜12/6<small>土台</small></h4>
+    <div class="tot">走る：約24km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">3回（5km、5km、4km）</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">10km（75分前後）</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回</span></div>
+  </div>
+
+  <div class="block wk ">
+    <h4>第4週 12/7〜12/13<small>土台</small></h4>
+    <div class="tot">走る：約27km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">3回（各5km）</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">12km（85〜90分）</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回。後ろ足のランジを足す</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">ロングの途中に、ジェルを1個試す（本番用の練習）。</span></div>
+  </div>
+
+  <div class="block wk down">
+    <h4>第5週 12/14〜12/20<small>調整（減らす週）</small></h4>
+    <div class="tot">走る：約20km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">2回（各5km）</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">日曜に10km（土曜のAWS受験のため）</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">減らす週。受験前日は、軽く動くだけ。</span></div>
+  </div>
+
+  <div class="block wk ">
+    <h4>第6週 12/21〜12/27<small>年末・旅先</small></h4>
+    <div class="tot">走る：約25km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">12/21〜24に3回（各5km）</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">12/27（日）に10km（旅先で。無理なら歩く）</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">1〜2回（できる範囲で）</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">12/25からの旅行。旅ランは、気持ちよく走る程度でOK。</span></div>
+  </div>
+
+  <div class="block wk down">
+    <h4>第7週 12/28〜1/3<small>年末年始</small></h4>
+    <div class="tot">走る：約18〜22km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">2回（旅先の朝に30分ずつ）</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">1/3（日）に12km</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">1〜2回（できる範囲で）</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">予定が詰まる週。量は、気にしなくていい。</span></div>
+  </div>
+
+  <div class="block wk ">
+    <h4>第8週 1/4〜1/10<small>再スタート</small></h4>
+    <div class="tot">走る：約27km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">3回（各5km）</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">12km</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">年末年始の疲れを見ながら。ペース練習はまだ入れない。</span></div>
+  </div>
+
+  <div class="block wk ">
+    <h4>第9週 1/11〜1/17<small>ペース練習を入れる</small></h4>
+    <div class="tot">走る：約28〜30km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">1〜2回（各5km）</span></div>
+    <div class="row"><span class="k">ペース練習</span><span class="v">水曜あたり：10分ジョグ→6'15"で1km×4（間に2分ジョグ）→10分ジョグ。約7km</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">14km</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回</span></div>
+  </div>
+
+  <div class="block wk ">
+    <h4>第10週 1/18〜1/24<small>いちばん長い週</small></h4>
+    <div class="tot">走る：約32km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">1回（5km）</span></div>
+    <div class="row"><span class="k">ペース練習</span><span class="v">6'10"で2km×3（間に3分ジョグ）。ウォームアップ・クールダウン込みで約8km</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v"><b>18km</b>（1/23〜24）。前半は7'10"、最後の2〜3kmだけ6'30"に上げる</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">脚の持久力の最後の仕上げ。ここで脚が持てば、本番の後半にも効く。</span></div>
+  </div>
+
+  <div class="block wk down">
+    <h4>第11週 1/25〜1/31<small>減らす週</small></h4>
+    <div class="tot">走る：約27km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">1回（5km）</span></div>
+    <div class="row"><span class="k">ペース練習</span><span class="v">6'10"で3km×2（間に3分ジョグ）。約8km</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">14km。最後の3kmを6'10"で</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">2回（軽めに）</span></div>
+  </div>
+
+  <div class="block wk down">
+    <h4>第12週 2/1〜2/7<small>テーパー（調整）</small></h4>
+    <div class="tot">走る：約20km</div>
+    <div class="row"><span class="k">イージー</span><span class="v">2回（各5km）</span></div>
+    <div class="row"><span class="k">ペース練習</span><span class="v">6'00"で1km×3（間に2分ジョグ）。短く</span></div>
+    <div class="row"><span class="k">ロング</span><span class="v">10km（2/6土曜あたり。ゆっくり）</span></div>
+    <div class="row"><span class="k">筋トレ</span><span class="v">1回だけ。軽く</span></div>
+  </div>
+
+  <div class="block wk race">
+    <h4>第13週 2/8〜2/14<small>本番の週</small></h4>
+    <div class="tot">走る：約9km＋本番</div>
+    <div class="row"><span class="k">火</span><span class="v">イージー5km。最後に、100mの流しを4本</span></div>
+    <div class="row"><span class="k">木</span><span class="v">イージー4km</span></div>
+    <div class="row"><span class="k">土</span><span class="v">休むか、20分の軽いジョグ</span></div>
+    <div class="row"><span class="k">日</span><span class="v">本番（2/14）</span></div>
+    <div class="row"><span class="k">メモ</span><span class="v">筋トレはしない。食事・睡眠・水分を整える。</span></div>
+  </div>
+
+  <div class="block">
+    <h4>当日の走り方</h4>
+    <div class="row"><span class="k">〜5km</span><span class="v">抑える。A・Bを決めない。1kmごとのラップを見て、速すぎたら落とす</span></div>
+    <div class="row"><span class="k">5〜10km</span><span class="v">呼吸が楽なペース（6'10"前後）に乗せる</span></div>
+    <div class="row"><span class="k">10km地点</span><span class="v">余裕があればA（6'00"）。少しでもきついならB（6'10"〜6'15"）</span></div>
+    <div class="row"><span class="k">15km以降</span><span class="v">ペースを守る。脚が重くなっても、歩幅を小さくして、リズムを保つ</span></div>
+    <div class="row"><span class="k">ラスト</span><span class="v">最後の2〜3kmで、残っていれば上げる。11/15のように、最後の5kmで頑張りすぎない</span></div>
+  </div>
+
+  <div class="block">
+    <h4>うまくいかないときの調整</h4>
+    <div class="row"><span class="k">遅れたら</span><span class="v">回復が遅れて始めが遅くなっても、周りの週を詰め込まない。遅れた分は、ロングの距離を少し減らして合わせる</span></div>
+    <div class="row"><span class="k">痛みが出たら</span><span class="v">膝・もも裏・背中に違和感が出たら、その日は走らない。2〜3日続くなら、整骨院で診てもらう</span></div>
+    <div class="row"><span class="k">体調不良</span><span class="v">熱や風邪のときは休む。1週間休んでも、体力はほとんど落ちない</span></div>
+    <div class="row"><span class="k">動かさない</span><span class="v">第12〜13週のテーパーは、そのまま。ここで練習を足さない</span></div>
+    <div class="row"><span class="k">見直し</span><span class="v">ペースは、1/18〜24週の様子で、AかBかを再確認する</span></div>
+  </div>
+
+  <div class="block">
+    <h4>注意</h4>
+    <div class="row"><span class="k">目安</span><span class="v">週ごとの距離・ペースは、月島の目安。体の反応を見て、毎週調整する</span></div>
+  </div>
+
+</div>
+</body>
+</html>
